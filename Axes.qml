@@ -27,7 +27,6 @@ Item {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
-            bottomMargin: -1
         }
     }
 
@@ -47,7 +46,7 @@ Item {
         width: parent.width
         color: parent.zeroLineColor
 
-        y: yScaleEngine.map(0, Qt.rect(0, 0, parent.width, parent.height), yScaleEngine.min, yScaleEngine.max)
+        y: yScaleEngine.map(0, Qt.rect(0, 0, parent.width, parent.height), yScaleEngine.min, yScaleEngine.max) - 1
         visible: y > 0 && y < parent.height
     }
 }
