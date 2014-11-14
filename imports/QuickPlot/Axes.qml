@@ -1,17 +1,19 @@
 import QtQuick 2.0
 
-Item {
+Rectangle {
     property var xScaleEngine
     property var yScaleEngine
-    property color color: "black"
+    property color borderColor: "black"
     property color zeroLineColor: Qt.rgba(0.5, 0.5, 0.5, 0.5)
 
     property alias hasXZeroLine: xzeroline.visible
     property alias hasYZeroLine: yzeroline.visible
 
+    color: "white"
+
     Rectangle {
         width: 1
-        color: parent.color
+        color: parent.borderColor
         anchors {
             top: parent.top
             bottom: parent.bottom
@@ -22,7 +24,7 @@ Item {
 
     Rectangle {
         height: 1
-        color: parent.color
+        color: parent.borderColor
         anchors {
             left: parent.left
             right: parent.right

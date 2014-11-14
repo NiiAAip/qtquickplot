@@ -11,6 +11,8 @@ Rectangle {
     width: prototype.implicitWidth
     height: prototype.implicitHeight
 
+    color: "#00000000"
+
     Tick {
         id: prototype
         tickAxis: scaleEngine.axis
