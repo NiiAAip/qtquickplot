@@ -26,4 +26,8 @@ OTHER_FILES += \
     imports/QuickPlot/Tick.qml \
     imports/QuickPlot/qmldir
 
-DESTDIR = imports/QuickPlot
+target.path = $$[QT_INSTALL_QML]/QuickPlot
+qmldir.path = $$[QT_INSTALL_QML]
+qmldir.files = imports/QuickPlot
+
+INSTALLS += target qmldir
