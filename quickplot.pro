@@ -7,7 +7,7 @@ SOURCES += main.cpp \
     vumeter.cpp \
     qpscaleengine.cpp \
     qpplotitem.cpp \
-    qpnicescaleengine.cpp
+    qptightscaleengine.cpp
 
 RESOURCES += qml.qrc
 
@@ -21,4 +21,4 @@ HEADERS += \
     vumeter.h \
     qpscaleengine.h \
     qpplotitem.h \
-    qpnicescaleengine.h
+    qptightscaleengine.h

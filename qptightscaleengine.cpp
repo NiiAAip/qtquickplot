@@ -1,14 +1,14 @@
-#include "qpnicescaleengine.h"
+#include "qptightscaleengine.h"
 #include "qpplotitem.h"
 
 #include <QtDebug>
 
-QPNiceScaleEngine::QPNiceScaleEngine(QQuickItem *parent) :
+QPTightScaleEngine::QPTightScaleEngine(QQuickItem *parent) :
     QPScaleEngine(parent)
 {
 }
 
-void QPNiceScaleEngine::calculateMinMax(qreal &min, qreal &max)
+void QPTightScaleEngine::calculateMinMax(qreal &min, qreal &max)
 {
     min = std::numeric_limits<qreal>::infinity();
     max = -std::numeric_limits<qreal>::infinity();

@@ -9,11 +9,11 @@ Item {
     property alias hasYTicks: ylabels.visible
     property alias axes: axes
 
-    property var xScaleEngine: NiceScaleEngine {
+    property var xScaleEngine: TightScaleEngine {
         axis: Qt.XAxis
     }
 
-    property var yScaleEngine : NiceScaleEngine {
+    property var yScaleEngine : TightScaleEngine {
         axis: Qt.YAxis
     }
 
