@@ -1,24 +1,29 @@
-TEMPLATE = app
+TEMPLATE = lib
+TARGET = quickplotqmlplugin
 
 QT += qml quick
-CONFIG += c++11
+CONFIG += qt plugin c++11
 
-SOURCES += main.cpp \
+SOURCES += \
     vumeter.cpp \
     qpscaleengine.cpp \
     qpplotitem.cpp \
-    qptightscaleengine.cpp
-
-RESOURCES += qml.qrc
-
-# Additional import path used to resolve QML modules in Qt Creator's code model
-QML_IMPORT_PATH =
-
-# Default rules for deployment.
-include(deployment.pri)
+    qptightscaleengine.cpp \
+    quickplotqmlplugin.cpp
 
 HEADERS += \
     vumeter.h \
     qpscaleengine.h \
     qpplotitem.h \
-    qptightscaleengine.h
+    qptightscaleengine.h \
+    quickplotqmlplugin.h
+
+OTHER_FILES += \
+    main.qml \
+    imports/QuickPlot/Axes.qml \
+    imports/QuickPlot/AxisLabels.qml \
+    imports/QuickPlot/PlotArea.qml \
+    imports/QuickPlot/Tick.qml \
+    imports/QuickPlot/qmldir
+
+DESTDIR = imports/QuickPlot

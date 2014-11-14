@@ -1,6 +1,6 @@
 import QtQuick 2.1
 import QtQuick.Window 2.0
-import QuickPlot 0.1
+import QuickPlot 1.0
 
 Window {
     visible: true

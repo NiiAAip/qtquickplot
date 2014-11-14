@@ -1,5 +1,5 @@
 import QtQuick 2.0
-import QuickPlot 0.1
+import QuickPlot 1.0
 
 Item {
     width: 400
