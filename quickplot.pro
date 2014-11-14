@@ -9,14 +9,16 @@ SOURCES += \
     qpscaleengine.cpp \
     qpplotitem.cpp \
     qptightscaleengine.cpp \
-    quickplotqmlplugin.cpp
+    quickplotqmlplugin.cpp \
+    qpcurve.cpp
 
 HEADERS += \
     vumeter.h \
     qpscaleengine.h \
     qpplotitem.h \
     qptightscaleengine.h \
-    quickplotqmlplugin.h
+    quickplotqmlplugin.h \
+    qpcurve.h
 
 OTHER_FILES += \
     main.qml \
