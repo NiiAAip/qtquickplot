@@ -57,6 +57,8 @@ qreal QPScaleEngine::map(qreal val, const QRectF &rect)
     } else if (m_axis == Qt::XAxis) {
         return (val - min()) / (max() - min()) * rect.width();
     }
+
+    return 0;
 }
 
 qreal QPScaleEngine::map(qreal val, QQuickItem *item)
