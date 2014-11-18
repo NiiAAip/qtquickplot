@@ -25,6 +25,13 @@ QColor QPCurve::color() const
     return m_color;
 }
 
+void QPCurve::clear()
+{
+    m_data.clear();
+
+    update();
+}
+
 void QPCurve::setColor(const QColor &arg)
 {
     if (m_color == arg)
@@ -65,6 +72,73 @@ void QPCurve::setData(const QVector<float> &data)
 
     emit coordinateBoundsChanged(coordinateBounds());
     update();
+}
+
+void QPCurve::appendData(const DataVector &data)
+{
+    if (data.isEmpty()) {
+        return;
+    }
+
+    QRectF oldBounds = m_bounds;
+
+    if (m_data.isEmpty()) {
+        const auto inf = std::numeric_limits<float>::infinity();
+        m_bounds.setCoords(inf, -inf, -inf, inf);
+    }
+
+    float xmin, xmax, ymin, ymax;
+    if (m_data.isEmpty()) {
+        ymin =  std::numeric_limits<float>::infinity();
+        ymax = -std::numeric_limits<float>::infinity();
+        xmin =  std::numeric_limits<float>::infinity();
+        xmax = -std::numeric_limits<float>::infinity();
+    } else {
+        xmin = m_bounds.left();
+        xmax = m_bounds.right();
+        ymin = m_bounds.bottom();
+        ymax = m_bounds.top();
+    }
+
+    int offset = m_data.size();
+    m_data.resize(m_data.size() + data.size());
+
+    for (int i = 0; i < data.size(); ++i, ++offset) {
+        m_data[offset] = data[i];
+        if (data[i].x() < xmin) {
+            xmin = data[i].x();
+        }
+        if (data[i].x() > xmax) {
+            xmax = data[i].x();
+        }
+        if (data[i].y() < ymin) {
+            ymin = data[i].y();
+        }
+        if (data[i].y() > ymax) {
+            ymax = data[i].y();
+        }
+    }
+
+    m_bounds.setCoords(xmin, ymax, xmax, ymin);
+
+    if (m_bounds != oldBounds) {
+        emit coordinateBoundsChanged(coordinateBounds());
+    }
+
+    update();
+}
+
+void QPCurve::appendData(const QVector<float> &data)
+{
+    DataVector dataVector(data.size());
+
+    int id = m_data.size();
+
+    for (int i = 0; i < data.size(); ++i, ++id) {
+        dataVector[i] = QPointF(id, data[i]);
+    }
+
+    appendData(dataVector);
 }
 
 void QPCurve::setData(const DataVector &data)

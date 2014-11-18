@@ -21,8 +21,11 @@ public:
     QColor color() const;
 
 public slots:
+    void clear();
     void setData(const DataVector &data);
     void setData(const QVector<float> &data);
+    void appendData(const DataVector &data);
+    void appendData(const QVector<float> &data);
 
     void setColor(const QColor &arg);
 
