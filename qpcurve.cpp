@@ -10,7 +10,7 @@ QPCurve::QPCurve(QQuickItem *parent) :
     setFlag(QQuickItem::ItemHasContents);
 }
 
-QPCurve::DataVector QPCurve::data() const
+QVector<QPointF> QPCurve::data() const
 {
     return m_data;
 }
@@ -74,7 +74,7 @@ void QPCurve::setData(const QVector<float> &data)
     update();
 }
 
-void QPCurve::appendData(const DataVector &data)
+void QPCurve::appendData(const QVector<QPointF> &data)
 {
     if (data.isEmpty()) {
         return;
@@ -130,7 +130,7 @@ void QPCurve::appendData(const DataVector &data)
 
 void QPCurve::appendData(const QVector<float> &data)
 {
-    DataVector dataVector(data.size());
+    QVector<QPointF> dataVector(data.size());
 
     int id = m_data.size();
 
@@ -141,7 +141,7 @@ void QPCurve::appendData(const QVector<float> &data)
     appendData(dataVector);
 }
 
-void QPCurve::setData(const DataVector &data)
+void QPCurve::setData(const QVector<QPointF> &data)
 {
     m_data = data;
 
