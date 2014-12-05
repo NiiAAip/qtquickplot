@@ -48,7 +48,7 @@ QRectF VUMeter::coordinateBounds() const
     return bounds;
 }
 
-void VUMeter::newDataArrived(const QVector<float> &data)
+void VUMeter::appendDataPoints(const QVector<float> &data)
 {
     if (data.isEmpty())
         return;
@@ -73,7 +73,7 @@ void VUMeter::newDataArrived(const QVector<float> &data)
 
 void VUMeter::appendDataPoint(qreal v)
 {
-    newDataArrived(QVector<float>() << v);
+    appendDataPoints(QVector<float>() << v);
 }
 
 void VUMeter::setColor(const QColor &arg)

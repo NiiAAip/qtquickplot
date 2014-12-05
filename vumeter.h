@@ -28,7 +28,7 @@ public:
     float lastValue() const { return m_data.empty() ? 0 : m_data.back(); }
 
 public slots:
-    void newDataArrived(const QVector<float>& data);
+    void appendDataPoints(const QVector<float>& data);
     void appendDataPoint(qreal v);
     void setNumPoints(int arg);
     void setColor(const QColor& arg);
