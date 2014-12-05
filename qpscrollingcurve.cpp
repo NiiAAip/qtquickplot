@@ -1,21 +1,21 @@
-#include "vumeter.h"
+#include "qpscrollingcurve.h"
 
 #include <QSGGeometry>
 #include <QSGGeometryNode>
 #include <QSGFlatColorMaterial>
 
-VUMeter::VUMeter(QQuickItem *parent) :
+QPScrollingCurve::QPScrollingCurve(QQuickItem *parent) :
     QPPlotItem(parent), m_numPoints(100), m_data(100), m_color(Qt::blue)
 {
     setFlag(QQuickItem::ItemHasContents);
 }
 
-int VUMeter::numPoints() const
+int QPScrollingCurve::numPoints() const
 {
     return m_numPoints;
 }
 
-void VUMeter::setNumPoints(int arg)
+void QPScrollingCurve::setNumPoints(int arg)
 {
     if (arg <= 0)
         return;
@@ -36,19 +36,19 @@ void VUMeter::setNumPoints(int arg)
     }
 }
 
-QColor VUMeter::color() const
+QColor QPScrollingCurve::color() const
 {
     return m_color;
 }
 
-QRectF VUMeter::coordinateBounds() const
+QRectF QPScrollingCurve::coordinateBounds() const
 {
     QRectF bounds;
     bounds.setCoords(0, yMax(), numPoints(), yMin());
     return bounds;
 }
 
-void VUMeter::appendDataPoints(const QVector<float> &data)
+void QPScrollingCurve::appendDataPoints(const QVector<float> &data)
 {
     if (data.isEmpty())
         return;
@@ -71,12 +71,12 @@ void VUMeter::appendDataPoints(const QVector<float> &data)
     update();
 }
 
-void VUMeter::appendDataPoint(qreal v)
+void QPScrollingCurve::appendDataPoint(qreal v)
 {
     appendDataPoints(QVector<float>() << v);
 }
 
-void VUMeter::setColor(const QColor &arg)
+void QPScrollingCurve::setColor(const QColor &arg)
 {
     if (m_color != arg) {
         m_color = arg;
@@ -85,7 +85,7 @@ void VUMeter::setColor(const QColor &arg)
     }
 }
 
-QSGNode *VUMeter::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *)
+QSGNode *QPScrollingCurve::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintNodeData *)
 {
     QSGGeometryNode *node = 0;
     QSGGeometry *geometry = 0;

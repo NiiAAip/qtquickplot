@@ -1,5 +1,5 @@
-#ifndef VUMETER_H
-#define VUMETER_H
+#ifndef QPSCROLLINGCURVE_H
+#define QPSCROLLINGCURVE_H
 
 #include <QQuickItem>
 #include <boost/circular_buffer.hpp>
@@ -7,7 +7,7 @@
 
 #include "qpplotitem.h"
 
-class VUMeter : public QPPlotItem
+class QPScrollingCurve : public QPPlotItem
 {
     Q_OBJECT
     Q_PROPERTY(int numPoints READ numPoints WRITE setNumPoints NOTIFY numPointsChanged)
@@ -15,7 +15,7 @@ class VUMeter : public QPPlotItem
     Q_PROPERTY(float lastValue READ lastValue)
 
 public:
-    explicit VUMeter(QQuickItem *parent = 0);
+    explicit QPScrollingCurve(QQuickItem *parent = 0);
 
     int numPoints() const;
     QColor color() const;
@@ -47,4 +47,4 @@ private:
     QColor m_color;
 };
 
-#endif // VUMETER_H
+#endif // QPSCROLLINGCURVE_H

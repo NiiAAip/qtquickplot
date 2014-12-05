@@ -19,7 +19,7 @@ Window {
         anchors.fill: parent
 
         items: [
-            VUMeter {
+            ScrollingCurve {
                 id: meter;
                 numPoints: 300
             }

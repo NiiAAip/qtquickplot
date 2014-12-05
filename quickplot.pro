@@ -5,20 +5,20 @@ QT += qml quick
 CONFIG += qt plugin c++11
 
 SOURCES += \
-    vumeter.cpp \
     qpscaleengine.cpp \
     qpplotitem.cpp \
     qptightscaleengine.cpp \
     quickplotqmlplugin.cpp \
-    qpcurve.cpp
+    qpcurve.cpp \
+    qpscrollingcurve.cpp
 
 HEADERS += \
-    vumeter.h \
     qpscaleengine.h \
     qpplotitem.h \
     qptightscaleengine.h \
     quickplotqmlplugin.h \
-    qpcurve.h
+    qpcurve.h \
+    qpscrollingcurve.h
 
 OTHER_FILES += \
     main.qml \
