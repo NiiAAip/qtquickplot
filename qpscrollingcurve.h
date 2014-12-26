@@ -28,17 +28,17 @@ public:
     float lastValue() const { return m_data.empty() ? 0 : m_data.back(); }
 
 public slots:
-    void appendDataPoints(const QVector<float>& data);
+    void appendDataPoints(const QVector<float> &data);
     void appendDataPoint(qreal v);
     void setNumPoints(int arg);
-    void setColor(const QColor& arg);
+    void setColor(const QColor &arg);
 
 protected:
     QSGNode *updatePaintNode(QSGNode *oldNode, UpdatePaintNodeData *);
 
 signals:
     void numPointsChanged(int arg);
-    void colorChanged(QColor arg);
+    void colorChanged(const QColor &arg);
 
 private:
     int m_numPoints, m_numVertices;

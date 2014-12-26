@@ -22,13 +22,13 @@ public:
     QPScaleEngine* yScaleEngine() const;
 
 signals:
-    void coordinateBoundsChanged(QRectF arg);
-    void xScaleEngineChanged(QPScaleEngine* arg);
+    void coordinateBoundsChanged(const QRectF &arg);
+    void xScaleEngineChanged(QPScaleEngine *arg);
     void yScaleEngineChanged(QPScaleEngine *arg);
 
 public slots:
-    void setXScaleEngine(QPScaleEngine* arg);
-    void setYScaleEngine(QPScaleEngine* arg);
+    void setXScaleEngine(QPScaleEngine *arg);
+    void setYScaleEngine(QPScaleEngine *arg);
 
 protected:
     QPointF map(const QPointF &p);

@@ -32,8 +32,8 @@ signals:
     void axisChanged(Qt::Axis arg);
 
 public slots:
-    void addPlotItem(QPPlotItem* item);
-    void removePlotItem(QPPlotItem* item);
+    void addPlotItem(QPPlotItem *item);
+    void removePlotItem(QPPlotItem *item);
     void clearPlotItems();
 
     virtual void updateScale();
