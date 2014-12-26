@@ -1,8 +1,7 @@
 import QtQuick 2.1
-import QtQuick.Window 2.0
 import QuickPlot 1.0
 
-Window {
+Rectangle {
     visible: true
     width: 640
     height: 480
