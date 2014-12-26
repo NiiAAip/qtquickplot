@@ -89,6 +89,18 @@ void QPScaleEngine::axis(Qt::Axis arg)
     emit axisChanged(arg);
 }
 
+void QPScaleEngine::setMin(qreal min)
+{
+    Q_UNUSED(min)
+    qWarning("This scale engine dynamically calculates its bounds. Setting the minimum will not have an effect.");
+}
+
+void QPScaleEngine::setMax(qreal max)
+{
+    Q_UNUSED(max)
+    qWarning("This scale engine dynamically calculates its bounds. Setting the maximum will not have an effect.");
+}
+
 void QPScaleEngine::calculateMinMax(qreal &min, qreal &max)
 {
     Q_UNUSED(min);

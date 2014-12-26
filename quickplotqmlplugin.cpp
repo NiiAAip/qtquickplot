@@ -5,6 +5,7 @@
 #include "qpscrollingcurve.h"
 #include "qpcurve.h"
 #include "qpscaleengine.h"
+#include "qpfixedscaleengine.h"
 #include "qptightscaleengine.h"
 
 void QuickPlotQmlPlugin::registerTypes(const char *uri)
@@ -14,5 +15,6 @@ void QuickPlotQmlPlugin::registerTypes(const char *uri)
     qmlRegisterType<QPScrollingCurve>("QuickPlot", 1, 0, "ScrollingCurve");
     qmlRegisterType<QPCurve>("QuickPlot", 1, 0, "Curve");
     qmlRegisterType<QPScaleEngine>("QuickPlot", 1, 0, "ScaleEngine");
+    qmlRegisterType<QPFixedScaleEngine>("QuickPlot", 1, 0, "FixedScaleEngine");
     qmlRegisterType<QPTightScaleEngine>("QuickPlot", 1, 0, "TightScaleEngine");
 }

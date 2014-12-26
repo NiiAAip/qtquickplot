@@ -10,7 +10,8 @@ SOURCES += \
     qptightscaleengine.cpp \
     quickplotqmlplugin.cpp \
     qpcurve.cpp \
-    qpscrollingcurve.cpp
+    qpscrollingcurve.cpp \
+    qpfixedscaleengine.cpp
 
 HEADERS += \
     qpscaleengine.h \
@@ -18,7 +19,8 @@ HEADERS += \
     qptightscaleengine.h \
     quickplotqmlplugin.h \
     qpcurve.h \
-    qpscrollingcurve.h
+    qpscrollingcurve.h \
+    qpfixedscaleengine.h
 
 OTHER_FILES += \
     main.qml \

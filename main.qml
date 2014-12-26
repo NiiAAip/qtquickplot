@@ -18,6 +18,11 @@ Window {
         id: plotArea
         anchors.fill: parent
 
+        yScaleEngine: FixedScaleEngine {
+            max: 1.5
+            min: -1.5
+        }
+
         items: [
             ScrollingCurve {
                 id: meter;
@@ -25,7 +30,6 @@ Window {
             }
         ]
     }
-
 
     Timer {
         id: timer;

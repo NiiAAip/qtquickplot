@@ -17,8 +17,14 @@ Item {
         axis: Qt.YAxis
     }
 
-    onXScaleEngineChanged: xScaleEngine.axis = Qt.XAxis
-    onYScaleEngineChanged: yScaleEngine.axis = Qt.YAxis
+    onXScaleEngineChanged: {
+        xScaleEngine.axis = Qt.XAxis;
+        this._updateDependencies();
+    }
+    onYScaleEngineChanged: {
+        yScaleEngine.axis = Qt.YAxis;
+        this._updateDependencies();
+    }
 
     AxisLabels {
         id: ylabels
@@ -57,7 +63,9 @@ Item {
 
     property list<PlotItem> items
 
-    onItemsChanged: {
+    Component.onCompleted: onItemsChanged.connect(this._updateDependencies);
+
+    function _updateDependencies() {
         for (var i = 0; i < items.length; ++i) {
             items[i].parent = this;
             items[i].xScaleEngine = xScaleEngine;
