@@ -7,7 +7,6 @@
 QPScrollingCurve::QPScrollingCurve(QQuickItem *parent) :
     QPPlotItem(parent), m_numPoints(100), m_data(100), m_color(Qt::blue)
 {
-    setFlag(QQuickItem::ItemHasContents);
 }
 
 int QPScrollingCurve::numPoints() const

@@ -7,7 +7,6 @@
 QPCurve::QPCurve(QQuickItem *parent) :
     QPPlotItem(parent)
 {
-    setFlag(QQuickItem::ItemHasContents);
 }
 
 QVector<QPointF> QPCurve::data() const

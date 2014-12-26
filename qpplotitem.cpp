@@ -4,6 +4,8 @@
 QPPlotItem::QPPlotItem(QQuickItem *parent) :
     QQuickItem(parent), m_xScaleEngine(0), m_yScaleEngine(0)
 {
+    setFlag(QQuickItem::ItemHasContents);
+    setClip(true);
 }
 
 QPPlotItem::~QPPlotItem()
