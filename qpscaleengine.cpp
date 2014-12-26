@@ -80,7 +80,7 @@ void QPScaleEngine::updateScale()
     }
 }
 
-void QPScaleEngine::axis(Qt::Axis arg)
+void QPScaleEngine::setAxis(Qt::Axis arg)
 {
     if (m_axis == arg)
         return;

@@ -11,7 +11,7 @@ class QPScaleEngine : public QQuickItem
     Q_PROPERTY(qreal min READ min WRITE setMin NOTIFY minChanged)
     Q_PROPERTY(qreal max READ max WRITE setMax NOTIFY maxChanged)
     Q_PROPERTY(QQmlListProperty<QPPlotItem> plotItems READ plotItemList)
-    Q_PROPERTY(Qt::Axis axis READ axis WRITE axis NOTIFY axisChanged)
+    Q_PROPERTY(Qt::Axis axis READ axis WRITE setAxis NOTIFY axisChanged)
 
 public:
     explicit QPScaleEngine(QQuickItem *parent = 0);
@@ -37,7 +37,7 @@ public slots:
     void clearPlotItems();
 
     virtual void updateScale();
-    void axis(Qt::Axis arg);
+    void setAxis(Qt::Axis arg);
 
     virtual void setMin(qreal min);
     virtual void setMax(qreal max);
