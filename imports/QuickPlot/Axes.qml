@@ -18,7 +18,7 @@ Rectangle {
             top: parent.top
             bottom: parent.bottom
             left: parent.left
-            leftMargin: -1
+            leftMargin: -width / 2
         }
     }
 
@@ -29,6 +29,7 @@ Rectangle {
             left: parent.left
             right: parent.right
             bottom: parent.bottom
+            bottomMargin: -height / 2
         }
     }
 
@@ -38,7 +39,7 @@ Rectangle {
         height: parent.height
         color: parent.zeroLineColor
 
-        x: xScaleEngine.map(0, Qt.rect(0, 0, parent.width, parent.height), xScaleEngine.min, xScaleEngine.max)
+        x: xScaleEngine.map(0, Qt.rect(0, 0, parent.width, parent.height), xScaleEngine.min, xScaleEngine.max) - width / 2
         visible: x > 0 && x < parent.width
     }
 
@@ -48,7 +49,7 @@ Rectangle {
         width: parent.width
         color: parent.zeroLineColor
 
-        y: yScaleEngine.map(0, Qt.rect(0, 0, parent.width, parent.height), yScaleEngine.min, yScaleEngine.max) - 1
+        y: yScaleEngine.map(0, Qt.rect(0, 0, parent.width, parent.height), yScaleEngine.min, yScaleEngine.max) - height / 2
         visible: y > 0 && y < parent.height
     }
 }
