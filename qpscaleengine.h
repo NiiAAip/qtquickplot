@@ -26,6 +26,9 @@ public:
     Q_INVOKABLE qreal map(qreal val, const QRectF &rect);
     Q_INVOKABLE qreal map(qreal val, QQuickItem *item);
 
+    Q_INVOKABLE qreal scaleFactor(const QRectF &rect);
+    Q_INVOKABLE qreal scaleFactor(QQuickItem *item);
+
 signals:
     void minChanged(qreal arg);
     void maxChanged(qreal arg);

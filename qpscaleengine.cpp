@@ -66,6 +66,22 @@ qreal QPScaleEngine::map(qreal val, QQuickItem *item)
     return map(val, item->boundingRect());
 }
 
+qreal QPScaleEngine::scaleFactor(const QRectF &rect)
+{
+    if (m_axis == Qt::YAxis) {
+        return -rect.height() / (max() - min());
+    } else if (m_axis == Qt::XAxis) {
+        return rect.width() / (max() - min());
+    }
+
+    return 0;
+}
+
+qreal QPScaleEngine::scaleFactor(QQuickItem *item)
+{
+    return scaleFactor(item->boundingRect());
+}
+
 void QPScaleEngine::updateScale()
 {
     qreal min = 0, max = 0;

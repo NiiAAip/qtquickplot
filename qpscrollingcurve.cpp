@@ -116,7 +116,7 @@ QSGNode *QPScrollingCurve::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdateP
     QSGGeometry::Point2D *vertices = geometry->vertexDataAsPoint2D();
 
     for (uint i = 0; i < m_data.size(); ++i) {
-        QPointF p = map(i, m_data[i]);
+        QPointF p(i, m_data[i]);
         vertices[i].set(p.x(), p.y());
     }
 

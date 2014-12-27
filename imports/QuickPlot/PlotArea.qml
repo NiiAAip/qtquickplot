@@ -63,17 +63,53 @@ Item {
 
     property list<PlotItem> items
 
-    Component.onCompleted: onItemsChanged.connect(this._updateDependencies);
+    Item {
+        clip: true
+        Item {
+            id: plotItemRescaler
+            anchors.fill: parent
+
+            property rect boundingRect: Qt.rect(0, 0, width, height)
+
+            transform: [
+                Scale {
+                    origin {
+                        x: xScaleEngine.min
+                        y: yScaleEngine.min
+                    }
+
+                    xScale: xScaleEngine.scaleFactor(plotItemRescaler.boundingRect,
+                                                     xScaleEngine.min, xScaleEngine.max);
+                    yScale: yScaleEngine.scaleFactor(plotItemRescaler.boundingRect,
+                                                     yScaleEngine.min, yScaleEngine.max);
+                },
+
+                Translate {
+                    x: 0
+                    y: plotItemRescaler.height
+                }
+            ]
+        }
+
+        anchors {
+            left: ylabels.right
+            right: parent.right
+            top: parent.top
+            bottom: xlabels.top
+        }
+    }
+
+    Component.onCompleted: {
+        this._updateDependencies();
+        onItemsChanged.connect(this._updateDependencies);
+    }
 
     function _updateDependencies() {
         for (var i = 0; i < items.length; ++i) {
-            items[i].parent = this;
+            items[i].parent = plotItemRescaler;
+            items[i].anchors.fill = plotItemRescaler;
             items[i].xScaleEngine = xScaleEngine;
             items[i].yScaleEngine = yScaleEngine;
-            items[i].anchors.left = ylabels.right;
-            items[i].anchors.right = right;
-            items[i].anchors.top = top;
-            items[i].anchors.bottom = xlabels.top;
         }
         xScaleEngine.plotItems = items;
         yScaleEngine.plotItems = items;

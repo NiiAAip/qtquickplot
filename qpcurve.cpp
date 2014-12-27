@@ -206,7 +206,7 @@ QSGNode *QPCurve::updatePaintNode(QSGNode *oldNode, QQuickItem::UpdatePaintNodeD
     QSGGeometry::Point2D *vertices = geometry->vertexDataAsPoint2D();
 
     for (int i = 0; i < m_data.size(); ++i) {
-        QPointF p = map(m_data[i]);
+        const QPointF &p = m_data[i];
         vertices[i].set(p.x(), p.y());
     }
 
