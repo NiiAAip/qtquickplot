@@ -108,8 +108,6 @@ Item {
         for (var i = 0; i < items.length; ++i) {
             items[i].parent = plotItemRescaler;
             items[i].anchors.fill = plotItemRescaler;
-            items[i].xScaleEngine = xScaleEngine;
-            items[i].yScaleEngine = yScaleEngine;
         }
         xScaleEngine.plotItems = items;
         yScaleEngine.plotItems = items;
