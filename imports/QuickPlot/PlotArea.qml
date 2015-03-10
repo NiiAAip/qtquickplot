@@ -72,12 +72,12 @@ Item {
             property rect boundingRect: Qt.rect(0, 0, width, height)
 
             transform: [
-                Scale {
-                    origin {
-                        x: xScaleEngine.min
-                        y: yScaleEngine.min
-                    }
+                Translate {
+                    x: xScaleEngine.min
+                    y: -yScaleEngine.min
+                },
 
+                Scale {
                     xScale: xScaleEngine.scaleFactor(plotItemRescaler.boundingRect,
                                                      xScaleEngine.min, xScaleEngine.max);
                     yScale: yScaleEngine.scaleFactor(plotItemRescaler.boundingRect,
