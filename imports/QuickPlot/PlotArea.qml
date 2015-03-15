@@ -73,7 +73,7 @@ Item {
 
             transform: [
                 Translate {
-                    x: xScaleEngine.min
+                    x: -xScaleEngine.min
                     y: -yScaleEngine.min
                 },
 
